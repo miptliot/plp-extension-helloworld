@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %}Демо-страница{% endblocktrans %}{% endblock title %}
+
+{% block section_id %}my{% endblock section_id %}
+
+{% block content %}
+    <h1>{% blocktrans %}модель Course{% endblocktrans %}</h1>
+    <div>
+        <p>{% blocktrans %}Поля модели:{% endblocktrans %}</p>
+        <ul>
+            {% for attname, verbose_name in fields %}
+                <li>{{ attname }} - {{ verbose_name }}</li>
+            {% endfor %}
+        </ul>
+        <code>dir(Course)</code>
+        <ul>
+            {% for item in dir %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
